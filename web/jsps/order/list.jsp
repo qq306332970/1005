@@ -56,42 +56,53 @@
 
 <table border="1" width="100%" cellspacing="0" background="black">
 
-	<tr bgcolor="gray" bordercolor="gray">
 		<%--<td colspan="6">--%>
 			<%--订单编号：abcdefg　成交时间：2000-01-01 15:30　金额：<font color="red"><b>319.2</b></font>　--%>
+
+			<%--<a href="<c:url value='/jsps/order/desc.jsp'/>">付款</a>--%>
+
+			<%--等待发货--%>
+			<%--<a href="javascript:alert('已确认收货！');">确认收货</a>--%>
+			<%--订单结束--%>
+			<%--</td>--%>
+			<c:forEach var="i" items="${requestScope.ordersList}">
+				<tr bgcolor="gray" bordercolor="gray">
+				<td colspan="6">
+					订单编号：${i.oid}　成交时间：${i.ordertime}　金额：<font color="red"><b>${i.price}</b></font>　
 
 					<%--<a href="<c:url value='/jsps/order/desc.jsp'/>">付款</a>--%>
 
 					<%--等待发货--%>
-					<%--<a href="javascript:alert('已确认收货！');">确认收货</a>--%>
-					<%--订单结束--%>
-		<%--</td>--%>
-			<c:forEach var="i" items="${requestScope.ordersList}">
-				<td colspan="6">
-					订单编号：${i.oid}　成交时间：${i.ordertime}　金额：<font color="red"><b>${i.price}</b></font>　
-
-					<a href="<c:url value='/jsps/order/desc.jsp'/>">付款</a>
-
-					等待发货
 					<a href="javascript:alert('已确认收货！');">确认收货</a>
 					订单结束
 				</td>
+	<%--<tr bordercolor="gray" align="center">--%>
+		<%--<td width="15%">--%>
+			<%--<div><img src="<c:url value='/book_img/9317290-1_l.jpg'/>" height="75"/></div>--%>
+		<%--</td>--%>
+		<td>书名：${list1.bname}</td>
+		<td>单价：${list1.price}</td>
+		<td>作者：${list1.author}</td>
+		<td>数量：${list1.count}</td>
+		<td>小计：${list1.subtotal}元</td>
+
+	<%--</tr>--%>
+				</tr>
 			</c:forEach>
-	</tr>
 
 
 
-	<tr bordercolor="gray" align="center">
-		<td width="15%">
-			<div><img src="<c:url value='/book_img/9317290-1_l.jpg'/>" height="75"/></div>
-		</td>
-		<td>书名：Java详解</td>
-		<td>单价：39.9元</td>
-		<td>作者：张孝祥</td>
-		<td>数量：2</td>
-		<td>小计：79.8元</td>
+	<%--<tr bordercolor="gray" align="center">--%>
+		<%--<td width="15%">--%>
+			<%--<div><img src="<c:url value='/book_img/9317290-1_l.jpg'/>" height="75"/></div>--%>
+		<%--</td>--%>
+		<%--<td>书名：Java详解</td>--%>
+		<%--<td>单价：39.9元</td>--%>
+		<%--<td>作者：张孝祥</td>--%>
+		<%--<td>数量：2</td>--%>
+		<%--<td>小计：79.8元</td>--%>
 
-	</tr>
+	<%--</tr>--%>
 	<%--<tr bordercolor="gray" align="center">--%>
 		<%--<td width="15%">--%>
 			<%--<div><img src="<c:url value='/book_img/9317290-1_l.jpg'/>" height="75"/></div>--%>

@@ -35,6 +35,7 @@ public class OrderItemServlet extends HttpServlet {
     SimpleDateFormat df;
     Date day;
     List<OrderItem> list;
+    List<OrderItem> list1;
     private OrderServiceImpl orderService = new OrderServiceImpl();
 
 
@@ -148,7 +149,10 @@ public class OrderItemServlet extends HttpServlet {
 //        address = request.getParameter("address");
 //        System.out.println(uid);
         list = orderService.find(uid);
+        list1 = orderItemService.findByUid(uid);
+//        request.getSession().setAttribute("list1",list1);
 //        list.forEach(System.out::println);
+//        list1.forEach(System.out::println);
 //        request.getRequestDispatcher("/jsps/main.jsp").forward(request,response);
 
         add1(request,response);
@@ -158,40 +162,30 @@ public class OrderItemServlet extends HttpServlet {
     private void add1(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String address = request.getParameter("address");
 
-        for (int i = 0; i < list.size(); i++) {
+//        for (int i = 0; i < list.size(); i++) {
             Orders orders = CommonUtils.toBean(request.getParameterMap(),Orders.class);
-            orders.setOid(list.get(i).getOid());
+            orders.setOid(list.get(0).getOid());
             orders.setAddress(address);
-            orders.setUid(list.get(i).getUid());
-            orders.setPrice(list.get(i).getPrice());
+            orders.setUid(list.get(0).getUid());
+//            orders.setPrice(list.get(0).getPrice());
             orders.setOrdertime(df.format(day));
             orders.setPrice((Double) request.getSession().getAttribute("sum"));
             boolean flag = orderService.add(orders);
             if (!flag){
                 request.getRequestDispatcher("/jsps/order/msg.jsp").forward(request,response);
-                break;
             }else {
-                continue;
+                request.getRequestDispatcher("jsps/order/success.jsp").forward(request,response);
             }
-        }
-        request.getRequestDispatcher("jsps/order/success.jsp").forward(request,response);
+//        }
     }
 
 
 
     private void findByOid(HttpServletRequest request,HttpServletResponse response) throws ServletException, IOException {
 
-        String oid = b;
-        List<Orders> ordersList = orderService.findByOid(oid);
+        String uid = (String) request.getSession().getAttribute("uid");
+        List<Orders> ordersList = orderService.findByUid(uid);
         ordersList.forEach(System.out::println);
-//        Orders orders = new Orders();
-//        for (int i = 0; i < ordersList.size(); i++) {
-//            if (ordersList.get(i).getOid().equals(ordersList.get(i+1).getOid())){
-//                orders.setOid(ordersList.get(0).getOid());
-//                orders.setOrdertime(ordersList.get(0).getOrdertime());
-//                orders.setPrice(ordersList.get(0).getPrice());
-//            }
-//        }
         request.setAttribute("ordersList",ordersList);
         request.getRequestDispatcher("/jsps/order/list.jsp").forward(request,response);
     }

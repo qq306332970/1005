@@ -27,7 +27,7 @@ public class OrderServiceImpl implements OrderService {
     }
 
     @Override
-    public List<Orders> findByOid(String oid) {
-        return ordersDao.findByOid(oid);
+    public List<Orders> findByUid(String uid) {
+        return ordersDao.findByUid(uid);
     }
 }

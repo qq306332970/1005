@@ -17,6 +17,6 @@ public interface OrderService {
     List<OrderItem> find(String uid);
 
     //查询orders表
-    List<Orders> findByOid(String oid);
+    List<Orders> findByUid(String uid);
 
 }

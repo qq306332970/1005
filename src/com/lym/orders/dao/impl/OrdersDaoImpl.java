@@ -5,6 +5,7 @@ import com.lym.orders.bean.Orders;
 import com.lym.orders.dao.OrdersDao;
 import com.mchange.v2.c3p0.ComboPooledDataSource;
 import org.apache.commons.dbutils.QueryRunner;
+import org.apache.commons.dbutils.handlers.BeanHandler;
 import org.apache.commons.dbutils.handlers.BeanListHandler;
 
 import java.sql.SQLException;
@@ -52,18 +53,18 @@ public class OrdersDaoImpl implements OrdersDao {
 
 
     @Override
-    public List<Orders> findByOid(String oid) {
+    public List<Orders> findByUid(String uid) {
 
-        List<Orders> ordersList = new ArrayList<>();
-        String sql = "select * from orders where oid = ?";
+        List<Orders> list = new ArrayList<>();
+        String sql = "select * from orders where uid = ?";
 
         try {
-            ordersList = queryRunner.query(sql,new BeanListHandler<>(Orders.class),oid);
+            list = queryRunner.query(sql,new BeanListHandler<>(Orders.class),uid);
         } catch (SQLException e) {
             e.printStackTrace();
         }
 
-        return ordersList;
+        return list;
     }
 
 }
