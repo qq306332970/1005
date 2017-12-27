@@ -57,7 +57,8 @@
 <table border="1" width="100%"  background="black">
 	<tr bgcolor="gray" bordercolor="gray">
 		<td colspan="6">
-			订单编号：123456　成交时间：2000-01-01 15:30　金额：<font color="red"><b>319.2元</b></font>
+			订单编号：<font color="red">${requestScope.a}</font> 成交时间：<font color="red">${requestScope.time}</font> 　金额：<font color="red"><b>${sessionScope.sum}</b></font>
+			<input type="hidden" name="uid" value="${sessionScope.uid}">
 		</td>
 	</tr>
 
@@ -81,7 +82,7 @@
 	</tr>
 
 
-	<c:forEach var="i" items="${requestScope.list}" >
+	<c:forEach var="i" items="${requestScope.orderItemList}" >
 		<tr>
 			<td width="15%"><div><img src="<c:url value='${i.image}'/>" height="75"/></div></td>
 			<td>${i.bname}</td>
@@ -93,7 +94,7 @@
 
 </table>
 <br/>
-<form method="post" action="javascript:alert('别点了，再点就去银行页面了！');" id="form" target="_parent">
+<form method="post" action="<c:url value='/orderItem?method=add'/>" id="form" target="_parent">
 	收货地址：<input type="text" name="address" size="50" value="北京市海淀区金燕龙大厦2楼216室无敌收"/><br/>
 
 	选择银行：<br/>

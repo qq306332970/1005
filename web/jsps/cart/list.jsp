@@ -143,7 +143,7 @@
 	<tr>
 		<td colspan="7" align="right" style="font-size: 15pt; font-weight: 900">
 			<%--<a id="buy" href="<c:url value='/jsps/order/desc.jsp'/>"></a>--%>
-			<a id="buy" href="<c:url value='/orderItem?method=insert&uid=${sessionScope.uid}'/>"></a>
+			<a id="buy" href="<c:url value='/orderItem?method=find&uid=${sessionScope.uid}'/>"></a>
 		</td>
 	</tr>
 </table>

@@ -1,14 +1,16 @@
 package com.lym.orderitem.bean;
 
+import com.lym.car.bean.CarBigBean;
+
 /**
  * Created by dllo on 17/12/25.
  */
 public class OrderItem {
 
-    private String iid,oid,bid;
+    private String iid,oid,uid;
     private int count;
-    private double subtotal;
-
+    private double subtotal,price;
+    private String image,bname,author;
     public OrderItem() {
     }
 
@@ -17,9 +19,13 @@ public class OrderItem {
         return "OrderItem{" +
                 "iid='" + iid + '\'' +
                 ", oid='" + oid + '\'' +
-                ", bid='" + bid + '\'' +
+                ", uid='" + uid + '\'' +
                 ", count=" + count +
                 ", subtotal=" + subtotal +
+                ", image='" + image + '\'' +
+                ", bname='" + bname + '\'' +
+                ", author='" + author + '\'' +
+                ", price='" + price + '\'' +
                 '}';
     }
 
@@ -39,12 +45,12 @@ public class OrderItem {
         this.oid = oid;
     }
 
-    public String getBid() {
-        return bid;
+    public String getUid() {
+        return uid;
     }
 
-    public void setBid(String bid) {
-        this.bid = bid;
+    public void setUid(String uid) {
+        this.uid = uid;
     }
 
     public int getCount() {
@@ -61,5 +67,37 @@ public class OrderItem {
 
     public void setSubtotal(double subtotal) {
         this.subtotal = subtotal;
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
+    }
+
+    public String getBname() {
+        return bname;
+    }
+
+    public void setBname(String bname) {
+        this.bname = bname;
+    }
+
+    public String getAuthor() {
+        return author;
+    }
+
+    public void setAuthor(String author) {
+        this.author = author;
+    }
+
+    public double getPrice() {
+        return price;
+    }
+
+    public void setPrice(double price) {
+        this.price = price;
     }
 }

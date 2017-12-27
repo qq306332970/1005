@@ -36,6 +36,7 @@
 		您好：${sessionScope.username}&nbsp;&nbsp;|&nbsp;&nbsp;
 		<a href="<c:url value='/car?method=findTop'/>" target="body">我的购物车</a>&nbsp;&nbsp;|&nbsp;&nbsp;
 		<a href="<c:url value='/jsps/order/list.jsp'/>" target="body">我的订单</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+		<a href="<c:url value='/orderItem?method=findByOid'/>" target="body">我的订单</a>&nbsp;&nbsp;|&nbsp;&nbsp;
 		<a href="<c:url value='/user?method=quit'/>" target="_parent">退出</a>
 		<br/>
 		<%--<a href="<c:url value='/jsps/user/login.jsp'/>" target="_parent">登录</a> |&nbsp; --%>

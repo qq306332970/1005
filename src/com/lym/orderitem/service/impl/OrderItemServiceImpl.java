@@ -20,5 +20,10 @@ public class OrderItemServiceImpl implements OrderItemService {
         return orderItemDao.insert(orderItem);
     }
 
+    @Override
+    public List<OrderItem> findByUid(String uid) {
+        return orderItemDao.findByUid(uid);
+    }
+
 
 }

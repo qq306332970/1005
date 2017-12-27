@@ -12,6 +12,7 @@ public interface OrderItemService {
     //添加到orderitem中
     boolean insert(OrderItem orderItem);
 
-
+    //根据uid查询
+    List<OrderItem> findByUid(String uid);
 
 }

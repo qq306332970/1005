@@ -55,7 +55,8 @@ SELECT * FROM book;
 /////////////////////////////////////////////
 
 CREATE TABLE orders (
-  oid CHAR(32) PRIMARY KEY,
+  id CHAR(32) PRIMARY KEY,
+  oid char(32),
   ordertime DATETIME,
   price DECIMAL(10,0),
   state SMALLINT(1),
